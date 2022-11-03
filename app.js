@@ -45,9 +45,9 @@ app.get('/js/:file', (req, res) => {
 app.get('/getdata', (req, res) => {
     pool.query("SELECT * FROM data_general", function (err, rows, fields) {
         if (rows == undefined) return res.send("<h1>Error de consulta</h1><br><strong> " + err + "</strong>");
-        console.log(rows);
         var response = rows;
         res.jsonp(response);
+        response = "";
     });
 });
 
