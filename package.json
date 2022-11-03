@@ -1,0 +1,17 @@
+{
+  "name": "repo.haliacraft.com",
+  "version": "1.0.0",
+  "description": "Repository webapp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "vCesar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3"
+  }
+}
