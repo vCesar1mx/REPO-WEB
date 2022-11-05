@@ -5,6 +5,7 @@ const app = express();
 const port = 80;
 const v = require('./config.json');
 var morgan = require('morgan');
+// DATABASE //
 const pool = mysql.createPool({
     host: v.host_db,
     user: v.user_db,
@@ -14,6 +15,7 @@ const pool = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0
 });
+// ENVIROMENT
 var running = "debug";
 function onRun(res) {
     if (running == "debug") {
@@ -26,13 +28,17 @@ function onRun(res) {
         })
     }
 }
+// APP USE's
 if (running = "debug") {
     app.use(morgan('dev'), compression());
 
 } else {
     app.use(morgan('combined'), compression());
 }
+app.use(require('express-status-monitor')());
 
+
+// ROUTES
 app.get('/', (req, res) => {
     onRun(res);
     res.status(200).sendFile(__dirname + '/public/index.html');
@@ -53,7 +59,6 @@ app.get('/js/:file', (req, res) => {
     onRun(res);
     res.status(200).sendFile(__dirname + `/public/assets/${req.params.file}.js`);
 });
-
 app.get('/getdata', (req, res) => {
     onRun(res);
     pool.query("SELECT * FROM data_general", function (err, rows, fields) {
@@ -64,6 +69,8 @@ app.get('/getdata', (req, res) => {
     });
 });
 
+
+// RUN
 app.listen(port, () => {
     console.log(`listen on ${port}`);
 });
