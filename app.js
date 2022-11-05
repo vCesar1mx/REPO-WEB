@@ -51,13 +51,9 @@ app.get('/favicon.ico', (req, res) => {
     onRun(res);
     res.status(200).sendFile(__dirname + '/public/assets/logo.png');
 });
-app.get('/css/:file', (req, res) => {
+app.get('/:type/:file', (req, res) => {
     onRun(res);
-    res.status(200).sendFile(__dirname + `/public/assets/${req.params.file}.css`);
-});
-app.get('/js/:file', (req, res) => {
-    onRun(res);
-    res.status(200).sendFile(__dirname + `/public/assets/${req.params.file}.js`);
+    res.status(200).sendFile(__dirname + `/public/assets/${req.params.file}.${req.params.type}`);
 });
 app.get('/getdata', (req, res) => {
     onRun(res);

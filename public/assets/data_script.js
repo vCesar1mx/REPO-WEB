@@ -9,17 +9,6 @@ function LinkFormatter(value, row, index) {
 function hashFormat(value, row, index) {
     return `<p class="hash_gen">${btoa(value)}</p>`;
 }
-$(document).on("click", "a", function () {
-    //this == the link that was clicked
-    var href = $(this).attr("href");
-    var valf = href.match(/[^\\/]+$/)[0];
-    alert("Descargando... " + valf);
-});
-
-function share_btn(input) {
-    navigator.clipboard.writeText(input);
-    $("#logo").notify("Enlace copiado");
-}
 
 $(document).ready(function () {
     var bar = $(".progress-bar");
