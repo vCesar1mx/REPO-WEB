@@ -43,9 +43,13 @@ app.get('/', (req, res) => {
     onRun(res);
     res.status(200).sendFile(__dirname + '/public/index.html');
 });
+app.get('/admin', (req, res) => {
+    onRun(res);
+    res.status(200).sendFile(__dirname + `/public/admin/index.html`);
+});
 app.get('/admin/:section', (req, res) => {
     onRun(res);
-    res.status(200).sendFile(__dirname + `/public/admin/${req.params.section}`);
+    res.status(200).sendFile(__dirname + `/public/admin/${section}`);
 });
 app.get('/logo', (req, res) => {
     onRun(res);
