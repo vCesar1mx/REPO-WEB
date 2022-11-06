@@ -29,14 +29,24 @@ I added to proyect three years of experience in web and backend, zero bugs, new 
 | `api_key` | `NA/N` | **NO Required**. |
 
 #### Get assets
-
+ ##### Reduced two routes in one
 ```http
-  GET /css/${exact_filename_in_folder}
-  GET /js/${exact_filename_in_folder}
+  GET /${file_type(css/js/sql/etc...)}/${exact_filename_in_folder}
   GET /logo
 ```
+ 
+#### API add data
+```http
+  POST /api/add
+```
 
-
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `author` | `Text` | **Name of author**. |
+| `tokenuser` | `Text` | **Code of use**. |
+| `link` | `Text` | **Link reference of file**. |
+| `file_name` | `Text` | **Name of file**. |
+| `file_ext` | `Text` | **Extension of file**. |
 ## Used By
 
 This project is used by the following companies:
