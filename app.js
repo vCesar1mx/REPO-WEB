@@ -74,10 +74,10 @@ app.post('/api/add', (req, res) => {
     console.log(req.body)
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     var id = Math.floor(Date.now() / 1000);
-    var file_4 = req.body.name_file.slice("0", "4");
+    var file_4 = req.body.file_name.slice("0", "4");
     var tokenuser = req.body.tokenuser.split("_", "1");
 
-    pool.query(`INSERT INTO data_general (id, author, name_file, link, tipo, ip, token_user, hash_generate) VALUES (NULL, '${req.body.author}', '${req.body.name_file}', '${req.body.link}', '${req.body.file_ext}', '${ip}', '${req.body.tokenuser}', '${id}.${file_4}.${req.body.file_ext}.${req.body.author}')`, function (err, rows, fields) {
+    pool.query(`INSERT INTO data_general (id, author, name_file, link, tipo, ip, token_user, hash_generate) VALUES (NULL, '${req.body.author}', '${req.body.file_name}', '${req.body.link}', '${req.body.file_ext}', '${ip}', '${req.body.tokenuser}', '${id}.${file_4}.${req.body.file_ext}.${req.body.author}')`, function (err, rows, fields) {
         if (err) return res.status(500).send("Error en la base de datos, contacta a un administrador.");
         res.status(200).send("Datos agregados");
     });
