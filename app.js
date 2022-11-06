@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const compression = require('compression');
+const bodyParser = require("body-parser");
 const app = express();
 const port = 80;
 const v = require('./config.json');
@@ -68,14 +69,12 @@ app.get('/getdata', (req, res) => {
         response = "";
     });
 });
-app.post('/api/:method', (req, res) => {
-    onRun();
-    pool.query("SELECT * FROM data_general", function (err, rows, fields) {
+app.post('/api/add', (req, res) => {
+    return console.log(req.body)
+   /* pool.query(`INSERT INTO `data_general` (`id`, `author`, `name_file`, `link`, `tipo`, `date`, `ip`, `token_user`, `hash_generate`) VALUES (NULL, 'test', 'test', 'test', 'pdf', CURRENT_TIMESTAMP, 'test', 'asd123', 'asdas');`, function (err, rows, fields) {
         if (rows == undefined) return res.send("<h1>Error de consulta</h1><br><strong> " + err + "</strong>");
-        var response = rows;
-        res.status(200).jsonp(response);
-        response = "";
-    });
+
+    });**/
 })
 
 
