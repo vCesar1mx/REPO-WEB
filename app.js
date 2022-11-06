@@ -79,7 +79,8 @@ app.post('/api/add', (req, res) => {
 
     pool.query(`INSERT INTO data_general (id, author, name_file, link, tipo, ip, token_user, hash_generate) VALUES (NULL, '${req.body.author}', '${req.body.file_name}', '${req.body.link}', '${req.body.file_ext}', '${ip}', '${req.body.tokenuser}', '${id}.${file_4}.${req.body.file_ext}.${req.body.author}')`, function (err, rows, fields) {
         if (err) return res.status(500).send("Error en la base de datos, contacta a un administrador.");
-        res.status(200).send("Datos agregados");
+        //res.status(200).send("Datos agregados");
+        res.send(`Datos agregados, con el Hash: ${id}.${file_4}.${req.body.file_ext}.${req.body.author}`)
     });
     //    res.send(`${id}.${file_4}.${req.body.file_ext}.${req.body.author}`)
 })
