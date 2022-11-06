@@ -47,10 +47,6 @@ app.get('/admin', (req, res) => {
     onRun(res);
     res.status(200).sendFile(__dirname + `/public/admin/index.html`);
 });
-app.get('/admin/:section', (req, res) => {
-    onRun(res);
-    res.status(200).sendFile(__dirname + `/public/admin/${section}`);
-});
 app.get('/logo', (req, res) => {
     onRun(res);
     res.status(200).sendFile(__dirname + '/public/assets/logo.png');
@@ -72,6 +68,15 @@ app.get('/getdata', (req, res) => {
         response = "";
     });
 });
+app.post('/api/:method', (req, res) => {
+    onRun();
+    pool.query("SELECT * FROM data_general", function (err, rows, fields) {
+        if (rows == undefined) return res.send("<h1>Error de consulta</h1><br><strong> " + err + "</strong>");
+        var response = rows;
+        res.status(200).jsonp(response);
+        response = "";
+    });
+})
 
 
 // RUN

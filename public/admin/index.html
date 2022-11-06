@@ -54,7 +54,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link text-dark text-upanim-v2" href="#"
-                >Fines de uso</a
+                >Administrar usuarios</a
               >
             </li>
             <li class="nav-item dropdown">
@@ -65,58 +65,165 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Otros
+                Acciones
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item text-upanim-v2" href="#">Logistica</a>
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
                   <a class="dropdown-item text-upanim-v2" href="#"
-                    >Tecnologia</a
+                    >Agregar registros</a
                   >
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item text-upanim-v2" href="#">Recursos</a>
+                  <a class="dropdown-item text-upanim-v2" href="#"
+                    >Eliminar registros</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item text-upanim-v2" href="#">Logs</a>
                 </li>
               </ul>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="ID DE PUBLICACION"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">IR</button>
-          </form>
         </div>
       </div>
     </nav>
 
+    <div class="container">
+      <div class="text-center mt-5">
+        <h1>Agregar Registros</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="card-body bg-light">
+              <div class="container">
+                <form id="reg-form" role="form">
+                  <div class="controls">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group disabled">
+                          <label for="form_name">Autor *</label>
+                          <input
+                            id="author"
+                            type="text"
+                            name="author"
+                            class="form-control author"
+                            disabled="true"
+                            required="required"
+                            data-error="Firstname is required."
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_lastname">Enlace *</label>
+                          <input
+                            id="link"
+                            type="text"
+                            name="link"
+                            class="form-control"
+                            placeholder="Introduce el enlace del archivo *"
+                            required="required"
+                            data-error="Sin enlace no puedes añadir un registro."
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_lastname">Token de uso *</label>
+                          <input
+                            id="token_user"
+                            type="text"
+                            name="token_user"
+                            class="form-control disabled token_user"
+                            disabled="true"
+                            required="required"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_need">Tipo de archivo *</label>
+                          <select
+                            id="file_ext"
+                            name="file_ext"
+                            class="form-control"
+                            required="required"
+                            data-error="Lo sentimos, no puede estar sin llenar."
+                          >
+                            <option value="" selected disabled>
+                              --Selecciona la extension--
+                            </option>
+                            <option value="pdf">PDF</option>
+                            <option value="docx">DOCX</option>
+                            <option value="txt">TEXTO</option>
+                            <option value="xlsx">EXCEL</option>
+                            <option value="pptx">POWERPOINT</option>
+                            <option value="sql">SQL</option>
+                            <option value="...">OTROS</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="form_message">Nombre del archivo</label>
+                          <textarea
+                            id="name_file"
+                            name="name_file"
+                            class="form-control"
+                            placeholder="Escribe el nombre breve."
+                            rows="4"
+                            required="required"
+                            data-error="Lo sentimos este espacio no puede estar vacio."
+                          ></textarea>
+                        </div>
+                      </div>
 
-
-
+                      <div class="col-md-12">
+                        <input
+                          id="submitButton"
+                          class="btn btn-success btn-send pt-2 btn-block"
+                          value="Agregar"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /.8 -->
+        </div>
+        <!-- /.row-->
+      </div>
+    </div>
 
     <footer class="py-3 my-4">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
-          <a href="#" class="tf nav-link px-2 text-muted">Inicio</a>
+          <a href="/" class="tf nav-link px-2 text-muted">Inicio</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="tf nav-link px-2 text-muted">Sugerencias</a>
+          <a href="/suggest" class="tf nav-link px-2 text-muted">Sugerencias</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="tf nav-link px-2 text-muted">Solicitar API</a>
+          <a href="/api-req" class="tf nav-link px-2 text-muted"
+            >Solicitar API</a
+          >
         </li>
         <li class="nav-item">
-          <a href="#" class="tf nav-link px-2 text-muted">FAQs</a>
+          <a href="/faqs" class="tf nav-link px-2 text-muted">FAQs</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="tf nav-link px-2 text-muted">Reportar un error</a>
+          <a href="/report-bug" class="tf nav-link px-2 text-muted"
+            >Reportar un error</a
+          >
         </li>
       </ul>
       <p class="text-center text-muted">
@@ -134,5 +241,26 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+    <script>
+      $(document).ready(function () {
+        $(".author").val("vCesar");
+        $(".token_user").val("admin_debug");
+      });
+
+      $("#submitButton").click(function () {
+        var url = "api/add"; // the script where you handle the form input.
+
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: $("#idForm").serialize(), // serializes the form's elements.
+          success: function (data) {
+            alert(data); // show response from the php script.
+          },
+        });
+
+        return false; // avoid to execute the actual submit of the form.
+      });
+    </script>
   </body>
 </html>
