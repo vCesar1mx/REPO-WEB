@@ -1,9 +1,7 @@
 function dateFormat(value, row, index) {
-  console.log(value);
   return moment(value).format("DD/MM/YYYY");
 }
 function LinkFormatter(value, row, index) {
-  console.log(value);
   var valf = value.match(/[^\\/]+$/);
   var response = `<a class="link-table" id="${row.link}" href="${row.link}">${valf}</a>`;
   return response;
