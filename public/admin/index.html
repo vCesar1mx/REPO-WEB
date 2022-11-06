@@ -25,7 +25,11 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
-    <style>.disabled{pointer-events:none;}</style>
+    <style>
+      .disabled {
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -246,8 +250,18 @@
       });
 
       $("#submitButton").click(function () {
-        var url = "api/add"; // the script where you handle the form input.
-
+        // define
+        var url = "api/add";
+        // validate
+        if (
+          $.trim($("#file_ext").val()) === "" ||
+          $.trim($("#link").val()) === "" ||
+          $.trim($("#file_name").val()) === ""
+        ) {
+          alert("Debes llenar todos los campos, imbecil!!");
+          return false;
+        }
+        // send
         $.ajax({
           type: "POST",
           url: url,
@@ -256,8 +270,11 @@
             alert(data); // show response from the php script.
           },
         });
-
-        return false; // avoid to execute the actual submit of the form.
+        // avoid to execute the actual submit of the form.
+        $("#file_ext").val("");
+        $("#link").val("");
+        $("#file_name").val("");
+        return false;
       });
     </script>
   </body>
