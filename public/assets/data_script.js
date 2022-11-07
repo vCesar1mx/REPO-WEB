@@ -10,24 +10,25 @@ function hashFormat(value, row, index) {
   return `<p class="hash_gen">${btoa(value)}</p>`;
 }
 
-$(document).ready(function () {
-  var bar = $(".progress-bar");
-  var divbar = $(".divbarp");
-  var finbar = $(".showE");
-  var msgOL = $(".msgOL");
-  msgOL.show();
-  finbar.hide();
-  for (let i = 0; i <= 10; i++) {
-    setTimeout(() => {
-      console.log("ahora es " + i);
-      bar.attr("aria-valuenow", i * 10);
-      bar.css("width", i + "0%");
-    }, 500 * i);
-  }
+
+var bar = $(".progress-bar");
+var divbar = $(".divbarp");
+var finbar = $(".showE");
+var msgOL = $(".msgOL");
+msgOL.show();
+finbar.hide();
+for (let i = 0; i <= 5; i++) {
   setTimeout(() => {
-    divbar.hide();
-    msgOL.hide();
-    finbar.show();
-    bar.hide();
-  }, 6000);
+    console.log("ahora es " + i);
+    bar.attr("aria-valuenow", i * 10);
+    bar.css("width", i + "0%");
+  }, 500 * i);
+}
+$(document).ready(function () {
+  bar.attr("aria-valuenow", 100);
+  bar.css("width", "10" + "0%");
+  divbar.hide();
+  msgOL.hide();
+  finbar.show();
+  bar.hide();
 });
