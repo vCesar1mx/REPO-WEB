@@ -19,14 +19,7 @@ const pool = mysql.createPool({
 // ENVIROMENT
 const ent = require('./src/enviroment.js');
 // APP USE's
-if (running = "debug") {
-    app.use(morgan('dev'), compression());
-
-} else {
-    app.use(morgan('combined'), compression());
-}
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(require('express-status-monitor')());
+ent.firstRun(app, bodyParser, morgan);
 
 
 // ROUTES
