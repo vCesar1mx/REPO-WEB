@@ -13,4 +13,4 @@ function firstRun(app, bodyParser, morgan) {
     app.use(require('express-status-monitor')());
 }
 
-module.exports = { onRun: onRun }
+module.exports = { onRun: onRun, firstRun: firstRun }
