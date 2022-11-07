@@ -19,7 +19,7 @@ const pool = mysql.createPool({
 // ENVIROMENT
 const ent = require('./src/enviroment.js');
 // APP USE's
-ent.firstRun(app, bodyParser, morgan);
+ent.firstRun(app, bodyParser, morgan, compression);
 
 
 // ROUTES
