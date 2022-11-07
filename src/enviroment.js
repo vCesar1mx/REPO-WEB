@@ -12,5 +12,16 @@ function firstRun(app, bodyParser, morgan, compression) {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(require('express-status-monitor')());
 }
+function pool_hand(mysql, v) {
+    const pool = mysql.createPool({
+        host: v.host_db,
+        user: v.user_db,
+        database: v.name_db,
+        password: v.pass_db,
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0
+    });
+}
 
-module.exports = { onRun: onRun, firstRun: firstRun }
+module.exports = { onRun: onRun, firstRun: firstRun, pool_hand: pool_hand }

@@ -6,21 +6,12 @@ const app = express();
 const port = 80;
 const v = require('./config.json');
 var morgan = require('morgan');
-// DATABASE //
-const pool = mysql.createPool({
-    host: v.host_db,
-    user: v.user_db,
-    database: v.name_db,
-    password: v.pass_db,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
-});
 // ENVIROMENT
 const ent = require('./src/enviroment.js');
 // APP USE's
 ent.firstRun(app, bodyParser, morgan, compression);
-
+// DATABASE
+ent.pool_hand(mysql, v);
 
 // ROUTES
 app.get('/', (req, res) => {
