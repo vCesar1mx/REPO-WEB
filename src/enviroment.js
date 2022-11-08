@@ -22,6 +22,7 @@ function pool_hand(mysql, v) {
         connectionLimit: 10,
         queueLimit: 0
     });
+    return pool;
 }
 
 module.exports = { onRun: onRun, firstRun: firstRun, pool_hand: pool_hand }

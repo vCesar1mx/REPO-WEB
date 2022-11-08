@@ -11,7 +11,7 @@ const ent = require('./src/enviroment.js');
 // APP USE's
 ent.firstRun(app, bodyParser, morgan, compression);
 // DATABASE
-ent.pool_hand(mysql, v);
+const pool = ent.pool_hand(mysql, v);
 
 // ROUTES
 app.get('/', (req, res) => {
@@ -50,7 +50,7 @@ app.post('/api/add', (req, res) => {
     var file_4 = req.body.file_name.slice("0", "4");
     var tokenuser = req.body.tokenuser.split("_", "1");
 
-    pool.query(`INSERT INTO data_general (id, author, name_file, link, tipo, ip, token_user, hash_generate) VALUES (NULL, '${req.body.author}', '${req.body.file_name}', '${req.body.link}', '${req.body.file_ext}', '${ip}', '${req.body.tokenuser}', '${id}.${file_4}.${req.body.file_ext}.${req.body.author}')`, function (err, rows, fields) {
+    pool.query(`INSERT INTO data_general (id, author, name_file, link, tipo, ip, token_user, hash_generate) VALUES (NULL, '${req.body.author}', '${req.body.file_name}', '${req.body.link}', '${req.body.file_ext}', '${ip}', '${req.body.tokenuser}', '${id}.${tokenuser}.${file_4}.${req.body.file_ext}.${req.body.author}')`, function (err, rows, fields) {
         if (err) return res.status(500).send("Error en la base de datos, contacta a un administrador.");
         //res.status(200).send("Datos agregados");
         res.send(`Datos agregados, con el Hash: ${id}.${file_4}.${req.body.file_ext}.${req.body.author}`)
