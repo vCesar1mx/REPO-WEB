@@ -144,7 +144,10 @@
 .alert {
   font-family: "Fira Sans", sans-serif;
 }
-
+/* NO RECORDS FOUND */
+.no-records-found{
+  color: #c50025;
+}
 /* FOOTER */
 .tf {
   text-decoration-line: none;
