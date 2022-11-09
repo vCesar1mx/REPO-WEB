@@ -263,7 +263,22 @@
           url: url,
           data: $("#reg-form").serialize(), // serializes the form's elements.
           success: function (data) {
-            alert(data); // show response from the php script.
+            if (data.code != "error") {
+              Swal.fire({
+                icon: "success",
+                title: "Estado actual",
+                text: data,
+                footer: '<a href="">Why do I have this issue?</a>',
+              });
+            } else{
+              Swal.fire({
+                icon: "error",
+                title: "Ha ocurrido un error",
+                text: data,
+                footer: '<a href="">Why do I have this issue?</a>',
+              });
+            }
+            //alert(data); // show response from the php script.
           },
         });
         // avoid to execute the actual submit of the form.
