@@ -267,14 +267,14 @@
               Swal.fire({
                 icon: "success",
                 title: "Estado actual",
-                text: data,
+                text: data.message,
                 footer: '<a href="">Why do I have this issue?</a>',
               });
             } else{
               Swal.fire({
                 icon: "error",
                 title: "Ha ocurrido un error",
-                text: data,
+                text: data.message,
                 footer: '<a href="">Why do I have this issue?</a>',
               });
             }
