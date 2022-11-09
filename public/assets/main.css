@@ -108,24 +108,51 @@
   text-transform: uppercase;
 }
 /* TABLE DATA */
-.link-table{
+.form-control {
+  background-color: #d3d3d3 !important;
+  border: 1px solid #0080ff;
+}
+.form-control:focus {
+  color: #bf1021 !important;
+}
+.btn-secondary {
+  background-color: #000000dc !important;
+  border: ridge !important;
+}
+.link-table {
   font-size: 80%;
   word-break: break-all;
 }
-.hash_gen{
+.hash_gen {
   word-break: break-all;
   font-size: 80%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* ALERT STYLE*/
+.alert-warning {
+  --bs-alert-color: #000000;
+  --bs-alert-bg: #ffc200;
+  --bs-alert-border-color: #000000;
+}
+.alert-success {
+  --bs-alert-color: #000000;
+  --bs-alert-bg: #5ab135;
+  --bs-alert-border-color: #000000;
+}
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap");
+.alert {
+  font-family: "Fira Sans", sans-serif;
 }
 
 /* FOOTER */
-.tf{
+.tf {
   text-decoration-line: none;
   color: black;
 }
-.tf:hover{
+.tf:hover {
   color: crimson !important;
-  text-transform:uppercase;
+  text-transform: uppercase;
   text-decoration-line: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

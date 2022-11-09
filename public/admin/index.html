@@ -261,7 +261,7 @@
         $.ajax({
           type: "POST",
           url: url,
-          data: $("#reg-form").serialize(), // serializes the form's elements.
+          data: $("#reg-form").serialize(),
           success: function (data) {
             if (data.code != "error") {
               Swal.fire({
@@ -275,13 +275,13 @@
                 icon: "error",
                 title: "Ha ocurrido un error",
                 text: data.message,
-                footer: '<a href="">Why do I have this issue?</a>',
+                footer: '<a href="">Comportamiento inusual</a>',
               });
             }
-            //alert(data); // show response from the php script.
+            //alert(data);
           },
         });
-        // avoid to execute the actual submit of the form.
+        // after send form
         $("#file_ext").val("");
         $("#link").val("");
         $("#file_name").val("");
