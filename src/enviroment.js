@@ -8,8 +8,7 @@ function firstRun(app, bodyParser, morgan, compression) {
     } else {
         app.use(morgan('combined'), compression());
     }
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(require('express-status-monitor')());
+    app.use(bodyParser.urlencoded({ extended: true }), require('express-status-monitor')());
 }
 function pool_hand(mysql, v) {
     const pool = mysql.createPool({
